@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My-Project</title>
+    <style>
+        
+        
+        h1{
+            color: blueviolet;
+            font-style: oblique;
+            text-align: center;
+            background-color: yellowgreen;
+        }
+        ::placeholder{
+            color:white;
+            background-color: dimgrey;
+            border-bottom: cornflowerblue;
+        
+            
+        }
+    
+
+        button{
+            color: black;
+            background-color:red;
+        }
+        .Google-item{
+            background-color:whitesmoke;
+            padding: 10px;
+            border-bottom: 1px solid black;
+        }
+        .close{
+            position: absolute;
+            right: 20px;
+            cursor: pointer;
+        }
+        
+        
+    </style>
+</head>
+<body style= "background-color:gray">
+    <div>
+        <h1>Flipkart-Lite</h1>
+        <input type="text" id="Flipkar-Input" placeholder="Ener FlipkartID" />
+        <button class="LogIn Button">Log In</button>
+        <ul class="Google">
+        <li class="Google-item">Wtach<span class="close">X</span></li>
+        <li class="Google-item">Headset<span class="close">X</span></li>
+        <li class="Google-item">MobilePhone<span class="close">X</span></li>
+
+
+
+    </div>
+    <script>
+        const LoginBtn=document.getElementsByClassName("LogIn Button")[0]
+        LoginBtn.addEventListener('click',(event)=>{
+            const FlipkartInput= document.getElementById("Flipkar-Input")
+            const FlipkartInputVal= FlipkartInput.value
+
+            const li = document.createElement('li')
+            li.classList.add('Google-item')
+            const text = document.createTextNode(FlipkartInputVal)
+            li.appendChild(text)
+
+            
+
+
+            const span = document.createElement('span')
+            span.classList.add('close')
+            const textNode = document.createTextNode('X')
+            span.appendChild(textNode)
+
+            li.appendChild(span)
+
+            const ul = document.getElementsByClassName('Google')[0]
+            ul.appendChild(li)
+
+            FlipkartInput.value= ""
+
+
+            span.addEventListener('click',(event) => {
+                const liitem = event.target
+                liitem.classList.toggle('strike')
+            })
+
+            span.addEventListener('click',(event) => {
+                const target = event.target
+                const parentLi = target.parentElement
+                parentLi.style.display="none"
+            })
+
+
+
+        })
+
+
+    </script>
+</body>
+</html>
